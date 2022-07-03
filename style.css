@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+:root {
+
+    /* --- Primary --- */
+    --Bright-Blue: hsl(220, 98%, 61%);
+    /* --Check-Background: linear-gradient (, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) */
+
+    /* --- Light Theme --- */
+    --Very-Light-Gray: hsl(0, 0%, 98%);
+    --Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+    --Light-Grayish-Blue: hsl(233, 11%, 84%);
+    --Dark-Grayish-Blue-light: hsl(236, 9%, 61%);
+    --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+
+    /* --- Dark Theme --- */
+    --Very-Dark-Blue: hsl(235, 21%, 11%);
+    --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+    --Light-Grayish-Blue: hsl(234, 39%, 85%);
+    --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+    --Dark-Grayish-Blue: hsl(234, 11%, 52%);
+    --Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+    --Very-Dark-Grayish-Blue2: hsl(237, 14%, 26%);
+
+    /* Images */
+    --bg-desktop-light: url(/images/bg-desktop-light.jpg);
+    --bg-desktop-dark: url(/images/bg-desktop-dark.jpg);
+    --bg-mobile-light: url(/images/bg-mobile-light.jpg);
+    --bg-mobile-dark: url(/images/bg-mobile-dark.jpg);
+
+    /* Icons */
+    --icon-sun: url(/images/icon-sun.svg);
+    --icon-moon: url(/images/icon-moon.svg);
+    --icon-check: url(/images/icon-check.svg);
+    --icon-cross: url(/images/icon-cross.svg);
+
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    transition: all ease-in-out .45s;
+}
+
+.dark {
+    --bg: var(--Very-Dark-Blue);
+    --bg-img: var(--bg-desktop-dark);
+    --bg-img-mb: var(--bg-mobile-dark);
+    --fg-todo: var(--Very-Dark-Desaturated-Blue);
+    --color: var(--Light-Grayish-Blue);
+    --icon: var(--icon-sun);
+}
+
+.light {
+    --bg: var(--Very-Light-Grayish-Blue);
+    --bg-img: var(--bg-desktop-light);
+    --bg-img-mb: var(--bg-mobile-light);
+    --fg-todo: var(--Very-Light-Gray);
+    --color: var(--Very-Dark-Grayish-Blue);
+    --icon: var(--icon-moon);
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.img-bg {
+    height: 40%;
+    width: 100%;
+    background-image: var(--bg-img);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.color-bg {
+    height: 60%;
+    width: 100%;
+    background-color: var(--bg);
+}
+
+.app {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background: transparent;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.heading h1 {
+    font-size: 48px;
+    color: var(--Very-Light-Gray);
+}
+
+.theme-icon {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    background-image: var(--icon);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.form,
+.todo-item,
+.manage {
+    width: 100%;
+    padding: 25px;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: var(--fg-todo);
+}
+
+.input {
+    width: 70%;
+    font-size: 18px;
+    color: var(--Dark-Grayish-Blue);
+    border: none;
+    outline: none;
+    margin-right: 20px;
+    background: transparent;
+}
+
+.add-task {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--Dark-Grayish-Blue);
+    border: 1px solid var(--Dark-Grayish-Blue);
+    border-radius: 10px;
+    padding: 12px 18px;
+    background-color: transparent;
+    transition: all ease-in .3s;
+}
+
+.add-task:hover {
+    color: var(--color);
+    background-image: linear-gradient(200deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.todo-item {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-bottom: 1px solid var(--Dark-Grayish-Blue);
+    background-color: var(--fg-todo);
+}
+
+.todo-item:first-of-type {
+    border-radius: 8px 8px 0 0;
+}
+
+.check,
+.delete {
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.check {
+    position: relative;
+    margin-right: 20px;
+    border: 1px solid var(--Dark-Grayish-Blue-light);
+    border-radius: 50%;
+}
+
+.check:hover {
+    background-image: linear-gradient(200deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.check::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.check:hover:after {
+    background-image: var(--icon-check);
+}
+
+.checked .check {
+    background-image: linear-gradient(200deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.checked .check::after {
+    background-image: var(--icon-check);
+}
+
+.checked .todo-text {
+    text-decoration: line-through;
+}
+
+.todo-text {
+    width: 80%;
+    font-size: 20px;
+    color: var(--color);
+}
+
+.delete {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 25px;
+    margin: auto 0;
+}
+
+.delete:hover {
+    background-image: var(--icon-cross);
+}
+
+.manage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    color: var(--Dark-Grayish-Blue);
+    background-color: var(--fg-todo);
+}
+
+.m-border {
+    border-radius: 0 0 8px 8px;
+}
+
+.m-clear {
+    cursor: pointer;
+    color: var(--Dark-Grayish-Blue);
+    border: none;
+    padding: 5px;
+    background-color: transparent;
+}
+
+@media only screen and (max-width: 990px) {
+    .app {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 786px) {
+
+    .app {
+        width: 100%;
+    }
+
+    .add-task {
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 476px) {
+
+    .img-bg {
+        background-image: var(--bg-img-mb);
+    }
+   
+    .input {
+        width: 60%;
+    }
+}
